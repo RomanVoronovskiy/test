@@ -80,7 +80,7 @@ public class ArticleController {
     @PreAuthorize("isAuthenticated()")
     public ResponseEntity<Article> updateArticle(
             @PathVariable Long id,
-            @Valid @RequestBody ArticleDTO dto) {
+            @Validated({ArticleDTO.class}) @Valid @RequestBody ArticleDTO dto) {
         return articleService.updateArticle(id, dto);
     }
 
