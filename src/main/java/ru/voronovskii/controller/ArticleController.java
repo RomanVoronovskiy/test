@@ -18,7 +18,6 @@ import ru.voronovskii.entity.Article;
 import ru.voronovskii.entity.dto.ArticleDTO;
 import ru.voronovskii.exception.UserErrorMessage;
 import ru.voronovskii.service.ArticleService;
-import ru.voronovskii.service.Validation;
 
 import javax.validation.Valid;
 
@@ -29,8 +28,7 @@ import javax.validation.Valid;
 @Tag(name = "Контроллер для работы со статьями")
 @Validated
 public class ArticleController {
-    @Autowired
-    Validation validator;
+
     private final ArticleService articleService;
 
     @Operation(summary = "Создание статьи", description = "создание полной карточки статьи")
