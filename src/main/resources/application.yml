@@ -1,0 +1,52 @@
+logging:
+  level:
+    root: INFO
+    org.springframework.security.web.DefaultSecurityFilterChain: WARN
+    org.springframework.security.web.access.expression: INFO
+    org.springframework.security.web.context: INFO
+    org.springframework.security.web.authentication.AnonymousAuthenticationFilter: INFO
+    org.springframework.security.access: INFO
+    org.springframework.security.config.annotation.web.builders: WARN
+    org.springframework.boot.actuate.amqp.RabbitHealthIndicator: ERROR
+    org.springframework.boot.actuate.redis.RedisHealthIndicator: ERROR
+    org.keycloak.adapters.authentication: INFO
+    org.keycloak.adapters.springsecurity.filter: INFO
+    org.keycloak.authorization.client.util.HttpMethod: INFO
+    org.jboss.resteasy.plugins.providers.jaxb.i18n: INFO
+    org.jboss.resteasy.resteasy_jaxrs.i18n: INFO
+    jdk.event.security: INFO
+
+server:
+  port: 8080
+  servlet:
+    context-path: ${SERVER_SERVLET_CONTEXT_PATH:/v1/service/article}
+  error:
+    whitelabel:
+      enabled: false
+
+spring:
+  application:
+    version: 0.0.1
+    name: Article-service
+  main:
+    allow-circular-references: false
+    lazy-initialization: false
+    allow-bean-definition-overriding: false
+
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:test_db}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+    open-in-view: false
+app:
+  props:
+    user_pass: ${USER_PASSWORD:qwe}
+    admin_pass: ${ADMIN_PASSWORD:asd}
